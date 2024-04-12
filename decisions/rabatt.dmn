@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/2.0" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" id="definitions_0o0927i" name="definitions" namespace="http://camunda.org/schema/1.0/dmn" exporter="dmn-js (https://demo.bpmn.io/dmn)" exporterVersion="13.0.0">
+  <decision id="decision_rabatt_dmn" name="Rabatt bestimmen (DMN)">
+    <informationRequirement id="InformationRequirement_1bhuyoj">
+      <requiredInput href="#InputData_040s83j" />
+    </informationRequirement>
+    <authorityRequirement id="AuthorityRequirement_06xwdgg">
+      <requiredAuthority href="#KnowledgeSource_0zte0j8" />
+    </authorityRequirement>
+    <decisionTable id="decisionTable_0ue3w00" hitPolicy="ANY" biodi:annotationsWidth="400">
+      <input id="input1" label="Alter" biodi:width="192">
+        <inputExpression id="inputExpression1" typeRef="number">
+          <text></text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0yyb68g" label="Student">
+        <inputExpression id="LiteralExpression_0dv91dg" typeRef="boolean">
+          <text></text>
+        </inputExpression>
+      </input>
+      <output id="output1" label="Rabatt" name="" typeRef="number" biodi:width="192" />
+      <rule id="DecisionRule_022yizm">
+        <description>Rabatt in %</description>
+        <inputEntry id="UnaryTests_0hj6vgf">
+          <text>alter &gt;= 67</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_14l72lt">
+          <text>FALSE</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0kvmlyb">
+          <text>10</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1jqxqei">
+        <description>Rabatt in %</description>
+        <inputEntry id="UnaryTests_028trad">
+          <text>alter &lt;= 17</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1oxqmbp">
+          <text>FALSE</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0chjo8g">
+          <text>25</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0ifh6rm">
+        <description>Rabatt in %</description>
+        <inputEntry id="UnaryTests_0xkva35">
+          <text>alter &lt;= 5</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_06rw2sv">
+          <text>FALSE</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_01a99ja">
+          <text>100</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0912dci">
+        <description>Rabatt in %</description>
+        <inputEntry id="UnaryTests_0c8uu3f">
+          <text>alter &gt;= 1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0kx8jko">
+          <text>TRUE</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1l84bft">
+          <text>25</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="InputData_040s83j" name="Gastinformationen" />
+  <knowledgeSource id="KnowledgeSource_0zte0j8" name="Rabattabteilung" />
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram id="DMNDiagram_1uexjew">
+      <dmndi:DMNShape id="DMNShape_0e34bhx" dmnElementRef="decision_0bdgsdo">
+        <dc:Bounds height="80" width="180" x="150" y="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_0jbs9wc" dmnElementRef="InputData_040s83j">
+        <dc:Bounds height="45" width="125" x="177" y="187" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0eowed5" dmnElementRef="InformationRequirement_1bhuyoj">
+        <di:waypoint x="240" y="187" />
+        <di:waypoint x="240" y="180" />
+        <di:waypoint x="240" y="160" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_1p59g4l" dmnElementRef="KnowledgeSource_0zte0j8">
+        <dc:Bounds height="63" width="100" x="450" y="88" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1w9rdld" dmnElementRef="AuthorityRequirement_06xwdgg">
+        <di:waypoint x="450" y="120" />
+        <di:waypoint x="330" y="120" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

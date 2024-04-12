@@ -1,0 +1,7 @@
+{
+  "decisions_dir_path": "./decisions/",
+  "prefix": "dmn",
+  "engine": {
+    "url": "http://engine:8000"
+  }
+}

@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  dmn:
+    #image: 5minds/dmn_engine-amd64:latest
+    image: 5minds/dmn_engine-arm64:latest
+    volumes:
+      - ./configs:/app/configs
+      - ./decisions:/app/decisions
+    environment:
+      - CONFIG_FILE=/app/configs/config.json
+
+  engine:
+    image: 5minds/processcube_engine:2024-1
+    ports:
+      - 8000:8000
+    volumes:
+      - ./processes:/processes:ro
+    command: --seed-dir=/processes --port 8000
